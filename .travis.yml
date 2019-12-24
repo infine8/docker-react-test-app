@@ -7,7 +7,7 @@ before_install:
     - docker build -t infine/docker-react-test-app -f Dockerfile.dev .
 
 script:
-    - docker run infine/docker-react-test-app npm run test -- --coverage
+    - docker run -e CI=true docker-react npm run test
 
 deploy:
     provider: elasticbeanstalk
